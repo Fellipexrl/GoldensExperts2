@@ -6,7 +6,211 @@
     <meta name="description" content="GoldensExperts - Marketing Digital e Empreendedorismo">
     <meta name="author" content="GoldensExperts">
     <title>GoldensExperts - Marketing Digital e Empreendedorismo</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.1rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 50px 20px;
+            margin: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .container div {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Modal */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 8px;
+        }
+
+        #popup button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .footer-section {
+            max-width: 300px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Gráficos */
+        .chart-container {
+            width: 100%;
+            height: 350px;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                padding: 12px 15px;
+                font-size: 1rem;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+
+            footer {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -26,15 +230,112 @@
 
     <section id="home" class="card">
         <h2>Bem-vindo à GoldensExperts</h2>
-        <p>Somos uma plataforma de ensino online dedicada a capacitar empreendedores e profissionais no mundo do marketing digital.</p>
+        <p>Somos uma plataforma de ensino online dedicada a capacitar empreendedores e profissionais no mundo do marketing digital. Oferecemos cursos especializados e consultorias para ajudá-lo a conquistar seus objetivos no mercado digital.</p>
         <button>Ler Mais</button>
+    </section>
+
+    <section id="cursos" class="card">
+        <h2>Cursos e Capacitações</h2>
+        <p>Explore os cursos que oferecemos para ajudá-lo a melhorar suas habilidades no marketing digital, empreendedorismo e muito mais.</p>
+        <div class="container">
+            <div>
+                <h3>Curso de Marketing Digital</h3>
+                <p>Aprenda as estratégias mais eficazes para atrair, converter e fidelizar clientes online.</p>
+                <button>Ler Mais</button>
+            </div>
+            <div>
+                <h3>Curso de SEO Avançado</h3>
+                <p>Otimize seu site para os motores de busca e aumente sua visibilidade online.</p>
+                <button>Ler Mais</button>
+            </div>
+            <div>
+                <h3>Curso de Empreendedorismo</h3>
+                <p>Transforme sua ideia em um negócio de sucesso com as estratégias que você aprenderá neste curso.</p>
+                <button>Ler Mais</button>
+            </div>
+        </div>
+
+        <!-- Tabela de Preços -->
+        <h3>Preços e Planos</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plano</th>
+                    <th>Preço</th>
+                    <th>Recursos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Plano Básico</td>
+                    <td>R$ 199,00</td>
+                    <td>Acesso a 3 cursos + Suporte Básico</td>
+                </tr>
+                <tr>
+                    <td>Plano Profissional</td>
+                    <td>R$ 499,00</td>
+                    <td>Acesso a todos os cursos + Suporte VIP</td>
+                </tr>
+                <tr>
+                    <td>Plano Empresarial</td>
+                    <td>R$ 999,00</td>
+                    <td>Acesso a todos os cursos + Consultoria Empresarial</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="sobre" class="card">
+        <h2>Sobre a GoldensExperts</h2>
+        <p>A GoldensExperts é uma plataforma de ensino e consultoria digital que visa capacitar empreendedores a aplicar as melhores estratégias de marketing digital para alavancar seus negócios. Oferecemos cursos online e consultorias personalizadas para ajudar você a crescer de maneira estratégica.</p>
+    </section>
+
+    <section id="testemunhos" class="card">
+        <h2>O que nossos alunos dizem</h2>
+        <div class="container">
+            <div>
+                <p>"O curso de Marketing Digital transformou a maneira como faço negócios online. Hoje, tenho mais clientes e melhores resultados!"</p>
+                <strong>José Silva, Empreendedor</strong>
+            </div>
+            <div>
+                <p>"A consultoria me ajudou a entender o que realmente precisava mudar na minha estratégia digital. Resultados rápidos e eficazes."</p>
+                <strong>Carla Souza, Empresária</strong>
+            </div>
+            <div>
+                <p>"Com os cursos da GoldensExperts, aprendi a otimizar meu site e aumentar minha visibilidade no Google. Fantástico!"</p>
+                <strong>Lucas Almeida, Profissional de SEO</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="card">
+        <h2>Contato</h2>
+        <p>Fale conosco para mais informações sobre nossos cursos ou para agendar uma consultoria.</p>
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+            
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required placeholder="Sua mensagem" rows="4"></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <section id="suporte" class="card">
+        <h2>Suporte</h2>
+        <p>Precisa de ajuda? Nossa equipe de suporte está pronta para te ajudar com qualquer dúvida técnica ou operacional.</p>
+        <button>Fale com nosso Suporte</button>
     </section>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sobre nós</h3>
-                <p>A GoldensExperts é especializada em ensinar e ajudar empresas a crescer no mundo digital.</p>
+                <p>A GoldensExperts é especializada em ensinar e ajudar empresas a crescer no mundo digital. Fornecemos cursos de marketing, SEO, e empreendedorismo.</p>
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
@@ -51,6 +352,28 @@
         <p>&copy; 2025 GoldensExperts. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="js/scripts.js"></script>
+    <script>
+        // Função para adicionar mais interações ou funções dinâmicas
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('header').classList.toggle('dark-mode');
+        }
+
+        // Exemplo de gráfico
+        const ctx = document.getElementById('chartCanvas').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Vendas',
+                    data: [30, 45, 60, 80, 70],
+                    backgroundColor: ['#42a5f5', '#66bb6a', '#ffca28', '#ff7043', '#8e24aa'],
+                    borderColor: ['#1e88e5', '#43a047', '#ffb300', '#ff5722', '#7b1fa2'],
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
 </body>
 </html>
