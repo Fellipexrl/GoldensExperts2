@@ -3,275 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing Digital e Empreendedorismo</title>
+    <meta name="description" content="GoldensExperts - Marketing Digital e Empreendedorismo">
+    <meta name="author" content="GoldensExperts">
+    <title>GoldensExperts</title>
+    <link rel="icon" href="favicon.ico">
     <style>
+        /* Estilos Globais */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #f4f4f4, #e0e0e0);
+            background-color: #f7f7f7;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
+
         header {
-            background: linear-gradient(90deg, #ff9800, #ff5722);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            font-size: 36px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        nav {
-            background: #d84315;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: #ffd700;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 100px 30px 30px; /* Ajusta o padding para não sobrepor o menu fixo */
-        }
-        .card {
-            background: white;
-            padding: 40px;
-            margin: 20px 0;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-            border-radius: 25px;
-            transition: 0.3s;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        .form-container {
-            background: white;
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 14px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            font-size: 16px;
-        }
-        button {
-            background: #ff9800;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 12px;
-            transition: 0.3s;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-        button:hover {
-            background: #d84315;
-        }
-        footer {
-            background: #ff5722;
+            background-color: #4CAF50;
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 16px;
-            margin-top: 40px;
         }
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            color: white;
-            padding: 18px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 50px;
-            text-decoration: none;
+
+        header nav ul {
             display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff9800;
+        }
+
+        /* Card com sombra */
+        .card {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Seções de Conteúdo */
+        .produtos-container, .depoimentos-container, .blog-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .produto, .depoimento, .post, .curso, .consultoria {
+            width: 30%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .produto:hover, .depoimento:hover, .post:hover, .curso:hover, .consultoria:hover {
+            transform: scale(1.05);
+        }
+
+        .produto img, .post img {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            background-color: #ff9800;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d84315;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
             align-items: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
         }
-        .whatsapp-button:hover {
-            background: #1ebe5d;
+
+        .popup-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
         }
-        .whatsapp-button img {
-            width: 26px;
-            height: 26px;
-            margin-right: 10px;
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
         }
+
         .social-media-links {
             display: flex;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
+
         .social-media-links a {
-            margin: 0 15px;
-            font-size: 20px;
-            color: #d84315;
+            margin: 0 10px;
             text-decoration: none;
-            transition: 0.3s;
+            color: #4CAF50;
         }
-        .social-media-links a:hover {
-            color: #ff9800;
+
+        /* Modo Escuro */
+        .dark-mode {
+            background-color: #333;
+            color: white;
         }
-        .contact-options {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
+
+        .dark-mode header {
+            background-color: #333;
         }
-        .contact-option {
-            background: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            width: 45%;
-            text-align: center;
-            transition: 0.3s;
+
+        .dark-mode header nav ul li a {
+            color: white;
         }
-        .contact-option:hover {
-            transform: scale(1.05);
-        }
-        .contact-option a {
-            color: #d84315;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-        .contact-option a:hover {
-            color: #ff9800;
-        }
-        @media screen and (max-width: 768px) {
-            nav a {
-                font-size: 16px;
-                margin: 0 10px;
-            }
-            .container {
-                width: 90%;
-            }
-            .whatsapp-button {
-                font-size: 16px;
-                padding: 15px;
-            }
-            .contact-options {
-                flex-direction: column;
-                align-items: center;
-            }
-            .contact-option {
-                width: 80%;
-                margin-bottom: 20px;
-            }
+
+        .dark-mode .popup-content {
+            background-color: #444;
+            color: white;
         }
     </style>
 </head>
 <body>
     <header>
-        Marketing Digital e Empreendedorismo
-    </header>
-    <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#estrategias">Estratégias</a>
-        <a href="#fotos">Fotos</a>
-        <a href="#contato">Contato</a>
-        <a href="#fundadores">Fundadores</a>
-    </nav>
-    <div class="container">
-        <section id="sobre" class="card">
-            <h2>Sobre</h2>
-            <p><strong>GoldensExperts</strong> é uma empresa focada em ensinar marketing digital e empreendedorismo, ajudando você a transformar conhecimento em lucros.</p>
-        </section>
-        <section id="estrategias" class="card">
-            <h2>Estratégias</h2>
-            <p>Conheça as estratégias mais eficazes para alavancar seu negócio no mundo digital. Nossas abordagens são personalizadas para cada tipo de empreendimento.</p>
-        </section>
-        <section id="fotos" class="card">
-            <h2>Fotos</h2>
-            <p>Confira alguns momentos e eventos que marcaram a trajetória do <strong>GoldensExperts</strong>.</p>
-            <!-- Aqui você pode adicionar imagens ou galerias -->
-        </section>
-        <section id="fundadores" class="card">
-            <h2>Fundadores</h2>
+        <h1>Bem-vindo ao GoldensExperts</h1>
+        <nav>
             <ul>
-                <li><strong>Fellipe</strong> - Especialista em Programação </li>
-                <li><strong>Anderson</strong> - Expert em Empreendedorismo Digital</li>
-                <li><strong>Douglas</strong> - Mestre em Vendas e Conversão</li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#cursos">Cursos</a></li>
             </ul>
-        </section>
-        <section id="contato" class="card">
-            <h2>Contato</h2>
-            <p>Escolha uma das opções abaixo para entrar em contato conosco:</p>
-            <div class="contact-options">
-                <div class="contact-option">
-                    <h3>Fale com um de nossos desenvolvedores</h3>
-                    <p>Se você precisa de suporte técnico ou mais informações sobre nossos serviços, fale diretamente com um dos nossos desenvolvedores.</p>
-                    <a href="https://wa.me/558981043761?text=Olá,%20preciso%20de%20suporte%20técnico." target="_blank">Falar no WhatsApp</a>
-                </div>
-            </div>
-            <div class="form-container">
-                <form id="contactForm" action="https://formspree.io/f/mdkarbnn" method="POST" onsubmit="return validateForm()">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required aria-label="Nome">
-                    
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required aria-label="E-mail">
-                    
-                    <label for="mensagem">Mensagem:</label>
-                    <select id="mensagem" name="mensagem" required aria-label="Mensagem">
-                        <option value="" disabled selected>Selecione uma opção</option>
-                        <option value="Quero aprender mais sobre loja Virtuais">Quero aprender mais sobre Lojas virtuais</option>
-                        <option value="Gostaria de uma consultoria">Gostaria de uma consultoria</option>
-                        <option value="Tenho dúvidas sobre um curso">Tenho dúvidas sobre um curso</option>
-                        <option value="Quero aprender mais sobre marketing digital">Quero aprender mais sobre marketing digital</option>
-                    </select>
-                    
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-        </section>
+        </nav>
+    </header>
 
-        <div class="social-media-links">
-            <a href="https://www.instagram.com/golden.sexperts?igsh=MXV2bnkwZnl4cXdvMA==" target="_blank">Instagram</a>
+    <!-- Produtos em Destaque -->
+    <section id="produtos" class="card">
+        <h2>Produtos em Destaque</h2>
+        <div class="produtos-container">
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200" alt="Guia para Iniciantes no Dropshipping">
+                <h3>Guia para Iniciantes no Dropshipping</h3>
+                <p>Descrição breve do produto "Guia para Iniciantes no Dropshipping".</p>
+                <!-- Link do Produto -->
+                <a href="https://pay.kiwify.com.br/MjbaSit" target="_blank">
+                    <button>Comprar</button>
+                </a>
+            </div>
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200" alt="O Marketing Digital para Iniciantes">
+                <h3>O Marketing Digital para Iniciantes</h3>
+                <p>Descrição breve do produto "O Marketing Digital para Iniciantes".</p>
+                <!-- Link do Produto -->
+                <a href="https://pay.kiwify.com.br/MjbaSit" target="_blank">
+                    <button>Comprar</button>
+                </a>
+            </div>
+            <div class="produto">
+                <img src="https://via.placeholder.com/300x200" alt="Produto 3">
+                <h3>Produto 3</h3>
+                <p>Descrição breve do produto 3.</p>
+                <button>Comprar</button>
+            </div>
         </div>
-    </div>
-    <footer>
-        &copy; 2025 Marketing Digital e Empreendedorismo
-    </footer>
-    <a class="whatsapp-button" href="https://wa.me/558981043761?text=Quero%20aprender%20a%20vender%20mais%21" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        Aumente suas vendas agora!
-    </a>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="card">
+        <h2>O que nossos clientes dizem</h2>
+        <div class="depoimentos-container">
+            <div class="depoimento">
+                <p>"O curso de marketing digital mudou completamente meu negócio!"</p>
+                <p><strong>João Silva</strong></p>
+            </div>
+            <div class="depoimento">
+                <p>"O atendimento e as estratégias são excelentes. Altamente recomendados!"</p>
+                <p><strong>Maria Oliveira</strong></p>
+            </div>
+            <div class="depoimento">
+                <p>"Ajudaram minha loja a se destacar no mercado digital!"</p>
+                <p><strong>Carlos Santos</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="card">
+        <h2>Nosso Blog</h2>
+        <div class="blog-container">
+            <div class="post">
+                <h3>Como aumentar suas vendas com marketing digital</h3>
+                <p>Aprenda técnicas comprovadas para melhorar seu desempenho no mercado digital.</p>
+                <a href="#">Leia mais</a>
+            </div>
+            <div class="post">
+                <h3>5 Estratégias para empreendedores iniciantes</h3>
+                <p>Confira as estratégias mais eficazes para quem está começando no empreendedorismo digital.</p>
+                <a href="#">Leia mais</a>
+            </div>
+            <div class="post">
+                <h3>Como utilizar as redes sociais para alavancar seu negócio</h3>
+                <p>Descubra como as redes sociais podem ser suas aliadas para aumentar a visibilidade da sua marca.</p>
+                <a href="#">Leia mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contador de Visitantes -->
+    <section id="contador">
+        <h2>Visitantes</h2>
+        <p>Visitantes atuais: <span id="contador-visitantes">0</span></p>
+    </section>
 
     <script>
-        function validateForm() {
-            let nome = document.getElementById('nome').value;
-            let email = document.getElementById('email').value;
-            if (nome === "" || email === "") {
-                alert("Por favor, preencha todos os campos.");
-                return false;
-            }
-            return true;
+        let visitantes = localStorage.getItem('visitantes') || 0;
+        visitantes++;
+        localStorage.setItem('visitantes', visitantes);
+        document.getElementById('contador-visitantes').innerText = visitantes;
+    </script>
+
+    <!-- Pop-up de Oferta -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup()">×</span>
+            <h2>Oferta Especial!</h2>
+            <p>Ganhe 10% de desconto em sua primeira compra. Use o código: BEMVINDO10</p>
+            <button onclick="closePopup()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('popup').style.display = 'block';
+        }, 3000);
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+
+    <!-- FAQ -->
+    <section id="faq" class="card">
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-item">
+            <h3>Como posso comprar os produtos?</h3>
+            <p>Você pode comprar diretamente em nosso site clicando nos botões de "Comprar" ao lado de cada produto.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Qual é a política de devolução?</h3>
+            <p>Você pode devolver o produto dentro de 30 dias após a compra para um reembolso total.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Posso pagar em várias parcelas?</h3>
+            <p>Sim, oferecemos parcelamento em até 12 vezes sem juros com cartão de crédito.</p>
+        </div>
+    </section>
+
+    <!-- Cursos e Consultorias -->
+    <section id="cursos" class="card">
+        <h2>Cursos e Consultorias</h2>
+        <div class="curso">
+            <h3>Cursos de Marketing Digital</h3>
+            <p>Aprenda as melhores estratégias para crescer no mercado digital.</p>
+            <button>Saiba mais</button>
+        </div>
+        <div class="consultoria">
+            <h3>Consultoria Personalizada</h3>
+            <p>Receba orientações individuais para o seu negócio digital.</p>
+            <button>Agende agora</button>
+        </div>
+    </section>
+
+    <!-- Chat -->
+    <a href="https://wa.me/558981043761?text=Oi%2C%20quero%20ajuda!" class="whatsapp-button" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        Fale conosco no WhatsApp!
+    </a>
+
+    <!-- Redes Sociais -->
+    <div class="social-media-links">
+        <a href="https://www.instagram.com/golden.sexperts" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/goldensexperts" target="_blank">Facebook</a>
+    </div>
+
+    <!-- Alternar Modo Escuro -->
+    <button onclick="toggleMode()">Alternar Modo</button>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
         }
     </script>
 </body>
-</html>
+    </html>
+    
