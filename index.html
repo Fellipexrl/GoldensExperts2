@@ -1,397 +1,1240 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="GoldensExperts - Marketing Digital e Empreendedorismo">
-    <meta name="author" content="GoldensExperts">
-    <title>GoldensExperts - Marketing Digital e Empreendedorismo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>GoldensExperts - Criação de Sites Profissionais</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Estilos Gerais */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Reset e Estilos Globais */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f7fa;
-            color: #333;
-            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        header {
-            background-color: #0044cc;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
+        
+        :root {
+            --primary: #FFD700;
+            --secondary: #1A1A1A;
+            --accent: #FF6B00;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --text: #333333;
+            --text-light: #6C757D;
         }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        header p {
-            font-size: 1.1rem;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            background-color: #333;
-            padding: 12px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .buy-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff9900;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .buy-button:hover {
-            background-color: #e68a00;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-
-        section {
-            padding: 50px 20px;
-            margin: 20px 0;
-        }
-
+        
         .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        /* Sobre Nós */
+        .about {
+            background: var(--light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .highlights {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
             flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .highlight-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .highlight-item h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+        }
+        
+        /* Serviços */
+        .services {
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-
-        .container div {
-            flex: 1;
-            padding: 20px;
-            box-sizing: border-box;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        
+        .service-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
-
-        .card {
-            background-color: white;
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            height: 150px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 3rem;
+        }
+        
+        .service-content {
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-content h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* Portfólio */
+        .portfolio {
+            background: var(--light);
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
+        /* Depoimentos */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-item {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin: 0 20px;
+        }
+        
+        .testimonial-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary);
+        }
+        
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-item h4 {
+            color: var(--secondary);
+        }
+        
+        .testimonial-item span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Contato */
+        .contact {
+            background: var(--light);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary);
             margin-bottom: 30px;
         }
-
-        .card h2 {
-            font-size: 2rem;
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        
+        .contact-info-text h4 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .contact-info-text a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info-text a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
             margin-bottom: 20px;
         }
-
-        .card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary);
         }
-
-        button {
-            padding: 12px 25px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-size: 1rem;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Tabelas */
-        table {
+        
+        .form-control {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Modal */
-        #popup {
-            display: none;
-            position: fixed;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #fff;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            border-radius: 8px;
-        }
-
-        #popup button {
-            background-color: red;
-            color: white;
-            padding: 10px 20px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            cursor: pointer;
+            font-size: 1rem;
+            transition: border 0.3s ease;
         }
-
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
         /* Footer */
         footer {
-            background-color: #333;
+            background: var(--secondary);
             color: white;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 60px 0 20px;
         }
-
-        .footer-content {
+        
+        .footer-container {
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-col h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col p {
             margin-bottom: 20px;
         }
-
-        .footer-section {
-            max-width: 300px;
+        
+        .footer-links {
+            list-style: none;
         }
-
-        .footer-section a {
-            color: white;
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
             text-decoration: none;
-            display: block;
-            margin: 5px 0;
+            transition: color 0.3s ease;
         }
-
-        .footer-section a:hover {
-            text-decoration: underline;
+        
+        .footer-links a:hover {
+            color: var(--primary);
         }
-
-        /* Gráficos */
-        .chart-container {
-            width: 100%;
-            height: 350px;
-            background-color: #fff;
-            border-radius: 8px;
-            margin-top: 20px;
-            padding: 20px;
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
         }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            .container {
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: white;
+            color: var(--text);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .whatsapp-btn:hover .whatsapp-tooltip {
+            opacity: 1;
+            right: 80px;
+        }
+        
+        /* Animações */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .about-content {
                 flex-direction: column;
             }
-
-            .navbar a {
-                padding: 12px 15px;
-                font-size: 1rem;
+            
+            .contact-container {
+                flex-direction: column;
             }
-
-            .card {
-                margin: 10px 0;
+            
+            h1 {
+                font-size: 2.5rem;
             }
-
-            footer {
-                padding: 20px;
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: all 0.5s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>GoldensExperts - Marketing Digital e Empreendedorismo</h1>
-        <p>Desenvolva suas habilidades e alavanque seu negócio com nossos cursos e consultorias especializadas.</p>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Goldens<span>Experts</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav class="navbar">
-        <a href="#home">Início</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#blog">Blog</a>
-        <a href="#testemunhos">Testemunhos</a>
-        <a href="#contato">Contato</a>
-        <a href="#suporte">Suporte</a>
-    </nav>
-
-    <section id="home" class="card">
-        <h2>Bem-vindo à GoldensExperts</h2>
-        <p>Somos uma plataforma de ensino online dedicada a capacitar empreendedores e profissionais no mundo do marketing digital. Oferecemos cursos especializados e consultorias para ajudá-lo a conquistar o sucesso.</p>
-        <button>Ler Mais</button>
-    </section>
-
-    <section id="cursos" class="card">
-        <h2>Cursos e Capacitações</h2>
-        <p>Explore os cursos que oferecemos para ajudá-lo a melhorar suas habilidades no marketing digital, empreendedorismo e muito mais.</p>
-        <div class="container">
-            <div>
-                <img src="https://i.ibb.co/NgGysw4c/Screenshot-20250302-201050.jpg" alt="Screenshot-20250302-201050" style="width: 100%; border-radius: 8px">
-                <h3>Método para aumentar suas vendas</h3>
-                <p>Aprenda as estratégias mais eficazes para atrair, converter e fidelizar clientes online.</p>
-                <a href="https://pay.kiwify.com.br/dqTEKvB" class="buy-button">Comprar</a>
-            </div>
-            <div>
-                <img src="https://i.ibb.co/fRmv0W9/Screenshot-20250302-204518.jpg" alt="Screenshot-20250302-204518" style="width: 100%; border-radius: 8px">
-                <h3>Método para aumentar suas vendas</h3>
-                <p>Aprenda as estratégias mais eficazes para atrair, converter e fidelizar clientes online.</p>
-                <a href="https://pay.kiwify.com.br/EXaIKPs?afid=ZOcP4OF0" class="buy-button">Comprar</a>
-            </div>
-            <div>
-                <img src="https://i.ibb.co/dsTdzwsH/Screenshot-20250302-200321.jpg" alt="Screenshot-20250302-200321" style="width: 100%; border-radius: 8px">
-                <h3>10 Gatilhos mentais</h3>
-                <p>Otimize seu site para os motores de busca e aumente sua visibilidade online.</p>
-                <a href="https://pay.kiwify.com.br/zifKUXp" class="buy-button">Comprar</a>
-            </div>
-            <div>
-                <img src="https://i.ibb.co/svVFMrkt/Design-sem-nome.jpg" alt="Design-sem-nome" style="width: 100%; border-radius: 8px;">
-                <h3>DropStart</h3>
-                <p>Transforme sua ideia em um negócio de sucesso com as estratégias que você aprenderá neste curso.</p>
-                <a href="https://pay.kiwify.com.br/SBPGGxP?afid=1tMgrU7R" class="buy-button">Comprar</a>
-            </div>
-        </div>
-
-        <!-- Tabela de Preços -->
-        <h3>Preços e Planos</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Plano</th>
-                    <th>Preço</th>
-                    <th>Recursos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Plano Básico</td>
-                    <td>R$ 25,00</td>
-                    <td>Acesso a 3 cursos + Suporte Básico</td>
-                </tr>
-                <tr>
-                    <td>Plano Profissional</td>
-                    <td>R$ 40,00</td>
-                    <td>Acesso a todos os cursos + Suporte VIP</td>
-                </tr>
-                <tr>
-                    <td>Plano Empresarial</td>
-                    <td>R$ 60,00</td>
-                    <td>Acesso a todos os cursos + Consultoria Empresarial</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section id="sobre" class="card">
-        <h2>Sobre a GoldensExperts</h2>
-        <p>A GoldensExperts é uma plataforma de ensino e consultoria digital que visa capacitar empreendedores a aplicar as melhores estratégias de marketing digital para alavancar seus negócios.</p>
-    </section>
-
-    <section id="testemunhos" class="card">
-        <h2>O que nossos alunos dizem</h2>
-        <div class="container">
-            <div>
-                <p>"O curso de Marketing Digital transformou a maneira como faço negócios online. Hoje, tenho mais clientes e melhores resultados!"</p>
-                <strong>José Silva, Empreendedor</strong>
-            </div>
-            <div>
-                <p>"A consultoria me ajudou a entender o que realmente precisava mudar na minha estratégia digital. Resultados rápidos e eficazes."</p>
-                <strong>Carla Souza, Empresária</strong>
-            </div>
-            <div>
-                <p>"Com os cursos da GoldensExperts, aprendi a otimizar meu site e aumentar minha visibilidade no Google. Fantástico!"</p>
-                <strong>Lucas Almeida, Profissional de SEO</strong>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Seu Projeto Digital Começa Aqui!</h1>
+            <p>Criação de Sites | WordPress | Manutenção | Design Profissional</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/5511999999999" class="btn btn-accent" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Fale com um Especialista
+                </a>
+                <a href="#services" class="btn">Nossos Serviços</a>
             </div>
         </div>
     </section>
 
-    <section id="contato" class="card">
-        <h2>Contato</h2>
-        <p>Ou, se preferir, entre em contato diretamente via <strong>email</strong> ou <strong>mensagem direta nas redes sociais</strong> abaixo:</p>
-        <ul>
-            <li>Email: seuemail@dominio.com</li>
-            <li>GitHub: <a href="https://github.com/seuperfil">github.com/seuperfil</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/seuperfil">linkedin.com/in/seuperfil</a></li>
-        </ul>
+    <!-- Sobre Nós -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>A GoldensExperts é uma agência digital especializada em criação de sites, desenvolvimento WordPress e soluções web completas para seu negócio.</p>
+                    <p>Nossa missão é levar inovação, segurança e performance para cada projeto, garantindo que sua presença online seja poderosa e eficiente.</p>
+                    <p>Com anos de experiência no mercado, nossa equipe de especialistas está pronta para transformar suas ideias em realidade digital.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Equipe GoldensExperts">
+                </div>
+            </div>
+            <div class="highlights">
+                <div class="highlight-item">
+                    <i class="fas fa-medal"></i>
+                    <h3>Experiência</h3>
+                    <p>Mais de 10 anos criando soluções digitais de alta qualidade</p>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Agilidade</h3>
+                    <p>Entregas rápidas sem abrir mão da excelência</p>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Suporte</h3>
+                    <p>Atendimento humanizado e suporte especializado</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="suporte" class="card">
-        <h2>Suporte</h2>
-        <p>Precisa de ajuda? Nossa equipe de suporte está pronta para te ajudar com qualquer dúvida técnica ou operacional.</p>
-        <button>Fale com nosso Suporte</button>
+    <!-- Serviços -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Criação de Sites Profissionais</h3>
+                        <p>Desenvolvemos sites modernos, responsivos e otimizados para conversão, alinhados com a identidade do seu negócio.</p>
+                        <a href="#contact" class="btn">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>WordPress Avançado</h3>
+                        <p>Soluções personalizadas em WordPress, desde sites institucionais até e-commerces complexos e sistemas sob medida.</p>
+                        <a href="#contact" class="btn">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Manutenção de Sites</h3>
+                        <p>Serviços de atualização, otimização e manutenção preventiva para manter seu site sempre seguro e performático.</p>
+                        <a href="#contact" class="btn">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Design Profissional</h3>
+                        <p>Criação de identidade visual, UI/UX design e materiais gráficos que fortalecem sua marca no mercado.</p>
+                        <a href="#contact" class="btn">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Portfólio -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>Portfólio</h2>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="wordpress">WordPress</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="wordpress">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Site Institucional" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Site Institucional</h3>
+                        <p>Site corporativo desenvolvido em WordPress para empresa de consultoria.</p>
+                        <a href="#" class="btn">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="ecommerce">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Loja Virtual" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Loja Virtual</h3>
+                        <p>E-commerce completo com integração de pagamentos e gestão de estoque.</p>
+                        <a href="#" class="btn">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="design">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Identidade Visual" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Identidade Visual</h3>
+                        <p>Criação completa de marca, logotipo e manual de identidade visual.</p>
+                        <a href="#" class="btn">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="wordpress">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Profissional" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Blog Profissional</h3>
+                        <p>Plataforma de conteúdo otimizada para SEO e engajamento.</p>
+                        <a href="#" class="btn">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="ecommerce">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Marketplace" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Marketplace</h3>
+                        <p>Plataforma de vendas multi-vendedores com sistema de comissões.</p>
+                        <a href="#" class="btn">Ver detalhes</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="design">
+                    <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UI/UX Design" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>UI/UX Design</h3>
+                        <p>Design de interface e experiência do usuário para aplicativo mobile.</p>
+                        <a href="#" class="btn">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>O Que Nossos Clientes Dizem</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente 1">
+                    <p>"A GoldensExperts transformou completamente nossa presença online. O site que desenvolveram superou todas as nossas expectativas e já gerou um aumento de 40% em nossos leads."</p>
+                    <h4>Ana Carolina Silva</h4>
+                    <span>CEO, Consultoria Empresarial</span>
+                </div>
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente 2">
+                    <p>"Trabalhei com várias agências antes, mas a atenção aos detalhes e o profissionalismo da equipe GoldensExperts são incomparáveis. Nosso e-commerce nunca funcionou tão bem."</p>
+                    <h4>Ricardo Almeida</h4>
+                    <span>Diretor, Loja de Esportes</span>
+                </div>
+                <div class="testimonial-item">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 3">
+                    <p>"O suporte pós-entrega foi fundamental para nós. Sempre disponíveis e ágeis em resolver qualquer questão. Recomendo sem hesitar!"</p>
+                    <h4>Fernanda Oliveira</h4>
+                    <span>Gerente de Marketing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Vamos conversar sobre seu projeto!</h3>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-info-text">
+                            <h4>Endereço</h4>
+                            <p>Av. Paulista, 1000 - São Paulo/SP</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="contact-info-text">
+                            <h4>Telefone</h4>
+                            <a href="tel:+5511999999999">(11) 99999-9999</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-info-text">
+                            <h4>Email</h4>
+                            <a href="mailto:contato@goldensexperts.com.br">contato@goldensexperts.com.br</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-info-text">
+                            <h4>Horário</h4>
+                            <p>Segunda a Sexta: 9h às 18h</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Sobre nós</h3>
-                <p>A GoldensExperts é especializada em ensinar e ajudar empresas a crescer no mundo digital. Fornecemos cursos de marketing, SEO, e empreendedorismo.</p>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>GoldensExperts</h3>
+                    <p>Sua agência digital completa, especializada em criação de sites, desenvolvimento WordPress e soluções web de alta performance.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Serviços</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Criação de Sites</a></li>
+                        <li><a href="#">WordPress</a></li>
+                        <li><a href="#">E-commerce</a></li>
+                        <li><a href="#">Design Profissional</a></li>
+                        <li><a href="#">Marketing Digital</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Assine nossa newsletter e receba dicas e novidades em seu email.</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Seu email" required>
+                        </div>
+                        <button type="submit" class="btn">Assinar</button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>Email: goldensexperts@gmail.com</p>
-                <p>Telefone: (66) 999319376</p>
-            </div>
-            <div class="footer-section">
-                <h3>Redes sociais</h3>
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">LinkedIn</a>
+            <div class="copyright">
+                <p>&copy; 2023 GoldensExperts. Todos os direitos reservados.</p>
             </div>
         </div>
-        <p>&copy; 2025 GoldensExperts. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        // Função para adicionar mais interações ou funções dinâmicas
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-        }
+    <!-- Botão do WhatsApp -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale conosco</span>
+    </a>
 
-        // Exemplo de gráfico
-        const ctx = document.getElementById('chartCanvas').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-                datasets: [{
-                    label: 'Vendas',
-                    data: [30, 45, 60, 80, 70],
-                    backgroundColor: ['#42a5f5', '#66bb6a', '#ffca28', '#ff7043', '#8e24aa'],
-                    borderColor: ['#1e88e5', '#43a047', '#ffb300', '#ff5722', '#7b1fa2'],
-                    borderWidth: 1
-                }]
+    <!-- JavaScript -->
+    <script>
+        // Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
+        
+        // Filtro do portfólio
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Slider de depoimentos (simplificado)
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-item');
+        
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Inicializar
+        showTestimonial(0);
+        setInterval(nextTestimonial, 5000);
+        
+        // Formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulação de envio
+            const name = document.getElementById('name').value;
+            alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`);
+            
+            // Limpar formulário
+            contactForm.reset();
+        });
+        
+        // Formulário de newsletter
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado por assinar nossa newsletter!');
+            newsletterForm.reset();
+        });
+        
+        // Animação ao rolar a página
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-content, .service-card, .portfolio-item, .contact-container');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Inicializar elementos com opacidade 0 para animação
+        document.querySelectorAll('.about-content, .service-card, .portfolio-item, .contact-container').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
-    <canvas id="chartCanvas"></canvas>
 </body>
 </html>
