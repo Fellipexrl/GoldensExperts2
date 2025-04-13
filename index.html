@@ -3,612 +3,857 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoldensExperts - Criação de Sites Profissionais</title>
+    <title>GOLDENSEXPERTS | Criação de Sites Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset e Estilos Globais */
+        /* RESET ULTRA COMPLETO */
+        :root {
+            --gold: #FFD700;
+            --dark-gold: #D4AF37;
+            --black: #000000;
+            --metal: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+            --neon-glow: 0 0 10px var(--gold), 0 0 20px var(--gold), 0 0 30px var(--gold);
+            --text-glow: 0 0 5px rgba(255, 215, 0, 0.7);
+            --font-main: 'Orbitron', 'Arial Black', sans-serif;
+            --font-secondary: 'Rajdhani', 'Segoe UI', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        }
+
+        @font-face {
+            font-family: 'Rajdhani';
+            src: url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap');
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
-        
-        :root {
-            --primary: #FFD700;
-            --secondary: #1A1A1A;
-            --accent: #FF6B00;
-            --light: #F8F9FA;
-            --dark: #212529;
-            --text: #333333;
-            --text-light: #6C757D;
-        }
-        
-        body {
-            color: var(--text);
-            line-height: 1.6;
+
+        html {
+            font-size: 62.5%;
+            background-color: var(--black);
             overflow-x: hidden;
         }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        h1, h2, h3, h4 {
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        h1 {
-            font-size: 3rem;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
+
+        body {
+            font-family: var(--font-secondary);
+            color: white;
+            line-height: 1.6;
             position: relative;
+            overflow-x: hidden;
+            counter-reset: section-counter;
+            background: url('https://www.transparenttextures.com/patterns/black-linen.png'),
+                        radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12 2L4 12l8 10 8-10z"/></svg>'), auto;
         }
-        
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            margin: 15px auto 0;
+
+        /* SCROLLBAR CUSTOMIZADA */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background-color: #111;
         }
-        
-        p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+            border: 2px solid #000;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
-            color: var(--secondary);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            text-align: center;
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFA500;
+            box-shadow: var(--text-glow);
         }
-        
-        .btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+        /* LAYOUT PRINCIPAL */
+        .main-container {
+            max-width: 2000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .btn-accent {
-            background: var(--accent);
-            color: white;
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 5rem;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .text-center {
-            text-align: center;
+
+        section::before {
+            counter-increment: section-counter;
+            content: "0" counter(section-counter);
+            position: absolute;
+            font-size: 25rem;
+            font-weight: 900;
+            color: rgba(255, 215, 0, 0.03);
+            right: 5%;
+            top: 10%;
+            z-index: 0;
+            font-family: var(--font-main);
         }
-        
-        /* Header */
+
+        /* HEADER MEGA STYLE */
         header {
             position: fixed;
-            width: 100%;
             top: 0;
             left: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            width: 100%;
+            z-index: 9999;
+            padding: 2rem 5rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
-        
+
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            padding: 1rem 5rem;
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            max-width: 1800px;
+            margin: 0 auto;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--secondary);
-            text-decoration: none;
+            font-size: 3.5rem;
+            font-weight: 900;
+            font-family: var(--font-main);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(to right, var(--gold) 0%, var(--dark-gold) 100%);
+            -webkit-backdrop-filter: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--text-glow);
+            position: relative;
+            z-index: 1;
         }
-        
-        .logo span {
-            color: var(--primary);
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
-        
-        nav ul {
+
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* MENU ULTRA AVANÇADO */
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
             display: flex;
             list-style: none;
         }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+
+        .nav-item {
+            margin-left: 4rem;
             position: relative;
         }
-        
-        nav ul li a:hover {
-            color: var(--accent);
+
+        .nav-link {
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            font-family: var(--font-main);
         }
-        
-        nav ul li a::after {
+
+        .nav-link::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            bottom: -5px;
+            bottom: 0;
             left: 0;
-            transition: width 0.3s ease;
-        }
-        
-        nav ul li a:hover::after {
             width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
-        
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--secondary);
+            color: var(--gold);
+            font-size: 3rem;
             cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
         }
-        
-        /* Hero Section */
+
+        .mobile-menu-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        /* HERO SECTION PREMIUM */
         .hero {
-            height: 100vh;
-            min-height: 700px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-            color: white;
             display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
             position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        url('https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2232&auto=format&fit=crop') center/cover no-repeat;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 0;
+        }
+
         .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: 7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 3rem;
+            font-family: var(--font-main);
+            background: linear-gradient(to right, var(--gold) 0%, white 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--neon-glow);
+            line-height: 1.2;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        .hero-subtitle {
+            font-size: 2.5rem;
+            margin-bottom: 5rem;
+            color: rgba(255, 255, 255, 0.9);
             max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-        
+
         .hero-btns {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            animation: fadeInUp 1s ease 0.6s both;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
-        
-        /* Atendentes Section */
-        .attendants {
-            background: var(--light);
-        }
-        
-        .attendants-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .attendant-card {
-            background: white;
-            border-radius: 10px;
+
+        /* BOTÕES ULTRA STYLE */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 1.8rem 4rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 50px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            padding: 30px;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 1;
+            cursor: pointer;
+            font-family: var(--font-main);
         }
-        
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--dark-gold) 0%, var(--gold) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .btn-icon {
+            margin-right: 1rem;
+            font-size: 2rem;
+        }
+
+        /* SEÇÃO DE ATENDENTES PREMIUM */
+        .attendants {
+            background: radial-gradient(circle at center, rgba(26, 26, 26, 0.9) 0%, rgba(0, 0, 0, 0.95) 100%);
+            position: relative;
+        }
+
+        .attendants::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-geometric.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .section-title {
+            font-size: 5rem;
+            text-transform: uppercase;
+            margin-bottom: 10rem;
+            text-align: center;
+            font-family: var(--font-main);
+            color: var(--gold);
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--gold);
+            margin: 2rem auto 0;
+            box-shadow: var(--text-glow);
+        }
+
+        .attendants-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5rem;
+            position: relative;
+            z-index: 1;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .attendant-card {
+            flex: 1 1 500px;
+            max-width: 600px;
+            background: var(--metal);
+            border-radius: 20px;
+            padding: 5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+                        inset 0 0 20px rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
         .attendant-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+                        inset 0 0 30px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
         }
-        
+
+        .attendant-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 0%,
+                transparent 45%,
+                rgba(255, 215, 0, 0.1) 50%,
+                transparent 55%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 0;
+        }
+
+        .attendant-card:hover::before {
+            left: 100%;
+            top: 100%;
+        }
+
+        .attendant-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
         .attendant-photo {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 20px;
-            border: 5px solid var(--primary);
-        }
-        
-        .attendant-card h3 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-        
-        .attendant-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-        
-        .whatsapp-btn {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-        }
-        
-        .whatsapp-btn i {
-            margin-right: 8px;
-        }
-        
-        /* Serviços */
-        .services {
-            background: white;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: var(--light);
-            border-radius: 10px;
+            border: 5px solid var(--gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            margin-bottom: 3rem;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
         }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+        .attendant-card:hover .attendant-photo {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
         }
-        
-        .service-icon {
-            height: 150px;
-            background: var(--primary);
-            display: flex;
+
+        .attendant-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 215, 0, 0.3) 0%,
+                transparent 50%,
+                rgba(255, 215, 0, 0.3) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .attendant-card:hover .attendant-photo::before {
+            opacity: 1;
+        }
+
+        .attendant-name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            font-family: var(--font-main);
+            letter-spacing: 1px;
+        }
+
+        .attendant-role {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .attendant-role::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1.5rem auto;
+            box-shadow: var(--text-glow);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: var(--secondary);
-            font-size: 3rem;
-        }
-        
-        .service-content {
-            padding: 30px;
-        }
-        
-        .service-content h3 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        /* Botão Flutuante do WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
+            padding: 1.5rem 3rem;
             background: #25D366;
             color: white;
-            width: 60px;
-            height: 60px;
+            border-radius: 50px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #128C7E 0%, #25D366 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .whatsapp-btn:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-icon {
+            margin-right: 1rem;
+            font-size: 2rem;
+        }
+
+        /* BOTÃO FLUTUANTE PREMIUM */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 5rem;
+            right: 5rem;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
-            z-index: 999;
-            transition: all 0.3s ease;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+            z-index: 9999;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: pulse 2s infinite;
             text-decoration: none;
         }
-        
+
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.8);
+            animation: none;
         }
-        
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 70px;
-            background: white;
-            color: var(--text);
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
+
+        /* ANIMAÇÕES PREMIUM */
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+            }
+            100% {
+                text-shadow: 0 0 20px var(--gold), 0 0 40px var(--gold), 0 0 60px var(--gold);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* EFEITOS DE PARTÍCULAS */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
-            transition: all 0.3s ease;
-            white-space: nowrap;
+            z-index: -1;
+            overflow: hidden;
         }
-        
-        .whatsapp-float:hover .whatsapp-tooltip {
-            opacity: 1;
-            right: 80px;
+
+        .particle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.8;
+            filter: blur(1px);
         }
-        
-        /* Animações */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsivo */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.5rem;
+
+        /* RESPONSIVIDADE PREMIUM */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 6rem;
             }
             
-            h2 {
+            .section-title {
+                font-size: 4rem;
+            }
+            
+            .attendant-card {
+                flex: 1 1 400px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 5rem;
+            }
+            
+            .hero-subtitle {
                 font-size: 2rem;
             }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
+            
+            .btn {
+                padding: 1.5rem 3rem;
+                font-size: 1.6rem;
+            }
+            
+            .nav-list {
                 position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: white;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
-                padding: 40px 0;
-                transition: all 0.5s ease;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                justify-content: center;
+                transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+                z-index: 9998;
+                border-left: 1px solid rgba(255, 215, 0, 0.2);
             }
             
-            nav ul.active {
-                left: 0;
+            .nav-list.active {
+                right: 0;
             }
             
-            nav ul li {
-                margin: 15px 0;
+            .nav-item {
+                margin: 2rem 0;
+            }
+            
+            .nav-link {
+                font-size: 2.2rem;
             }
             
             .mobile-menu-btn {
                 display: block;
             }
-            
-            .hero h1 {
-                font-size: 2.2rem;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 8rem 3rem;
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3.5rem;
+                margin-bottom: 7rem;
+            }
+            
+            .attendant-card {
+                padding: 4rem;
+            }
+            
+            .attendant-name {
+                font-size: 2.4rem;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 2.5rem;
+                bottom: 3rem;
+                right: 3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 8rem 2rem;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+                letter-spacing: 3px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.8rem;
             }
             
             .hero-btns {
                 flex-direction: column;
-                align-items: center;
+                gap: 2rem;
             }
             
             .btn {
                 width: 100%;
-                max-width: 250px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            section {
-                padding: 60px 0;
+                max-width: 300px;
+                margin: 0 auto;
             }
             
-            h1 {
-                font-size: 2rem;
+            .section-title {
+                font-size: 3rem;
             }
             
-            h2 {
-                font-size: 1.8rem;
+            .attendant-card {
+                padding: 3rem 2rem;
+            }
+            
+            .attendant-photo {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Efeito de Partículas -->
+    <div class="particles-container" id="particles"></div>
+
     <!-- Header -->
     <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">Goldens<span>Experts</span></a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#attendants">Atendentes</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
+        <div class="header-container">
+            <a href="#" class="logo">GOLDENSEXPERTS</a>
+            
+            <div class="nav-container">
+                <nav>
+                    <ul class="nav-list" id="navList">
+                        <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
+                        <li class="nav-item"><a href="#attendants" class="nav-link">Atendentes</a></li>
+                        <li class="nav-item"><a href="#services" class="nav-link">Serviços</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Seu Projeto Digital Começa Aqui!</h1>
-            <p>Criação de Sites | WordPress | Manutenção | Design Profissional</p>
+            <h1 class="hero-title">CRIAÇÃO DE SITES PREMIUM</h1>
+            <p class="hero-subtitle">Soluções digitais personalizadas com tecnologia de ponta e design exclusivo para alavancar seu negócio</p>
+            
             <div class="hero-btns">
-                <a href="#attendants" class="btn btn-accent">
-                    <i class="fas fa-headset"></i> Falar com Atendente
+                <a href="#attendants" class="btn btn-primary">
+                    <i class="fas fa-headset btn-icon"></i> Falar com Especialista
                 </a>
-                <a href="#services" class="btn">Nossos Serviços</a>
+                <a href="#services" class="btn btn-secondary">
+                    <i class="fas fa-laptop-code btn-icon"></i> Nossos Serviços
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Atendentes -->
+    <!-- Atendentes Section -->
     <section class="attendants" id="attendants">
-        <div class="container">
-            <h2>Nossos Atendentes</h2>
-            <div class="attendants-grid">
+        <div class="main-container">
+            <h2 class="section-title">Nossos Atendentes</h2>
+            
+            <div class="attendants-container">
+                <!-- Atendente 1 -->
                 <div class="attendant-card">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="João Pedro" class="attendant-photo">
-                    <h3>João Pedro</h3>
-                    <p>Especialista em Criação de Sites</p>
-                    <a href="https://wa.me/556696208993" class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> (66) 9620-8993
-                    </a>
+                    <div class="attendant-content">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="João Pedro" class="attendant-photo">
+                        <h3 class="attendant-name">JOÃO PEDRO</h3>
+                        <p class="attendant-role">Especialista em Criação de Sites</p>
+                        <a href="https://wa.me/556696208993" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp whatsapp-icon"></i> (66) 9620-8993
+                        </a>
+                    </div>
                 </div>
+                
+                <!-- Atendente 2 -->
                 <div class="attendant-card">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Douglas" class="attendant-photo">
-                    <h3>Douglas</h3>
-                    <p>Especialista em WordPress</p>
-                    <a href="https://wa.me/558981043761" class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> (89) 8104-3761
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Serviços -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Nossos Serviços</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Criação de Sites Profissionais</h3>
-                        <p>Desenvolvemos sites modernos, responsivos e otimizados para conversão, alinhados com a identidade do seu negócio.</p>
-                        <a href="#attendants" class="btn">Falar com Especialista</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fab fa-wordpress"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>WordPress Avançado</h3>
-                        <p>Soluções personalizadas em WordPress, desde sites institucionais até e-commerces complexos e sistemas sob medida.</p>
-                        <a href="#attendants" class="btn">Falar com Especialista</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Manutenção de Sites</h3>
-                        <p>Serviços de atualização, otimização e manutenção preventiva para manter seu site sempre seguro e performático.</p>
-                        <a href="#attendants" class="btn">Falar com Especialista</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Design Profissional</h3>
-                        <p>Criação de identidade visual, UI/UX design e materiais gráficos que fortalecem sua marca no mercado.</p>
-                        <a href="#attendants" class="btn">Falar com Especialista</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Precisa de mais informações?</h3>
-                    <p>Entre em contato com nossa equipe através dos canais abaixo:</p>
-                    
-                    <div class="contact-info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div class="contact-info-text">
-                            <h4>Telefone</h4>
-                            <a href="tel:+556696208993">(66) 9620-8993 - João Pedro</a><br>
-                            <a href="tel:+558981043761">(89) 8104-3761 - Douglas</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div class="contact-info-text">
-                            <h4>WhatsApp</h4>
-                            <a href="https://wa.me/556696208993" target="_blank">Falar com João Pedro</a><br>
-                            <a href="https://wa.me/558981043761" target="_blank">Falar com Douglas</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="contact-info-text">
-                            <h4>Email</h4>
-                            <a href="mailto:contato@goldensexperts.com.br">contato@goldensexperts.com.br</a>
-                        </div>
+                    <div class="attendant-content">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Douglas" class="attendant-photo">
+                        <h3 class="attendant-name">DOUGLAS</h3>
+                        <p class="attendant-role">Especialista em WordPress</p>
+                        <a href="https://wa.me/558981043761" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp whatsapp-icon"></i> (89) 8104-3761
+                        </a>
                     </div>
                 </div>
             </div>
@@ -618,81 +863,396 @@
     <!-- Botão Flutuante do WhatsApp -->
     <a href="https://wa.me/556696208993" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Fale conosco</span>
     </a>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Premium -->
     <script>
-        // Menu Mobile
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Scroll suave para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Header scroll effect
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Sistema de Partículas Avançado
+        class ParticleSystem {
+            constructor(containerId, particleCount = 100) {
+                this.container = document.getElementById(containerId);
+                this.particleCount = particleCount;
+                this.particles = [];
+                this.colors = ['#FFD700', '#D4AF37', '#FFA500', '#FFFFFF'];
+                this.init();
             }
-        });
-        
-        // Animação ao rolar a página
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.attendant-card, .service-card');
             
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+            init() {
+                this.createParticles();
+                this.animate();
+                window.addEventListener('resize', this.handleResize.bind(this));
+            }
+            
+            createParticles() {
+                for (let i = 0; i < this.particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Tamanho aleatório entre 1px e 5px
+                    const size = Math.random() * 4 + 1;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    // Posição inicial aleatória
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    
+                    // Opacidade aleatória
+                    particle.style.opacity = Math.random() * 0.7 + 0.1;
+                    
+                    // Cor aleatória
+                    particle.style.backgroundColor = this.colors[Math.floor(Math.random() * this.colors.length)];
+                    
+                    // Velocidade e direção
+                    const speed = Math.random() * 2 + 0.5;
+                    const angle = Math.random() * Math.PI * 2;
+                    const velocity = {
+                        x: Math.cos(angle) * speed,
+                        y: Math.sin(angle) * speed
+                    };
+                    
+                    // Armazenar dados da partícula
+                    this.particles.push({
+                        element: particle,
+                        x: Math.random() * window.innerWidth,
+                        y: Math.random() * window.innerHeight,
+                        velocity,
+                        size
+                    });
+                    
+                    this.container.appendChild(particle);
                 }
+            }
+            
+            animate() {
+                this.particles.forEach(particle => {
+                    // Atualizar posição
+                    particle.x += particle.velocity.x;
+                    particle.y += particle.velocity.y;
+                    
+                    // Verificar bordas
+                    if (particle.x > window.innerWidth + particle.size) {
+                        particle.x = -particle.size;
+                    } else if (particle.x < -particle.size) {
+                        particle.x = window.innerWidth + particle.size;
+                    }
+                    
+                    if (particle.y > window.innerHeight + particle.size) {
+                        particle.y = -particle.size;
+                    } else if (particle.y < -particle.size) {
+                        particle.y = window.innerHeight + particle.size;
+                    }
+                    
+                    // Aplicar nova posição
+                    particle.element.style.left = `${particle.x}px`;
+                    particle.element.style.top = `${particle.y}px`;
+                });
+                
+                requestAnimationFrame(this.animate.bind(this));
+            }
+            
+            handleResize() {
+                // Ajustar posições ao redimensionar
+                const widthRatio = window.innerWidth / this.previousWidth || 1;
+                const heightRatio = window.innerHeight / this.previousHeight || 1;
+                
+                this.particles.forEach(particle => {
+                    particle.x *= widthRatio;
+                    particle.y *= heightRatio;
+                });
+                
+                this.previousWidth = window.innerWidth;
+                this.previousHeight = window.innerHeight;
+            }
+        }
+
+        // Efeito de Digitação
+        class TypeWriter {
+            constructor(elementId, texts, typingSpeed = 100, erasingSpeed = 50, delayBetweenTexts = 2000) {
+                this.element = document.getElementById(elementId);
+                this.texts = texts;
+                this.typingSpeed = typingSpeed;
+                this.erasingSpeed = erasingSpeed;
+                this.delayBetweenTexts = delayBetweenTexts;
+                this.textIndex = 0;
+                this.charIndex = 0;
+                this.isDeleting = false;
+                this.init();
+            }
+            
+            init() {
+                setTimeout(this.type.bind(this), this.delayBetweenTexts);
+            }
+            
+            type() {
+                const currentText = this.texts[this.textIndex];
+                
+                if (this.isDeleting) {
+                    this.element.textContent = currentText.substring(0, this.charIndex - 1);
+                    this.charIndex--;
+                } else {
+                    this.element.textContent = currentText.substring(0, this.charIndex + 1);
+                    this.charIndex++;
+                }
+                
+                if (!this.isDeleting && this.charIndex === currentText.length) {
+                    this.isDeleting = true;
+                    setTimeout(this.type.bind(this), this.delayBetweenTexts);
+                } else if (this.isDeleting && this.charIndex === 0) {
+                    this.isDeleting = false;
+                    this.textIndex = (this.textIndex + 1) % this.texts.length;
+                    setTimeout(this.type.bind(this), this.typingSpeed);
+                } else {
+                    setTimeout(this.type.bind(this), this.isDeleting ? this.erasingSpeed : this.typingSpeed);
+                }
+            }
+        }
+
+        // Efeito Parallax Avançado
+        class AdvancedParallax {
+            constructor() {
+                this.sections = document.querySelectorAll('section');
+                this.header = document.getElementById('header');
+                this.lastScrollPosition = 0;
+                this.scrollDirection = 0;
+                this.init();
+            }
+            
+            init() {
+                window.addEventListener('scroll', this.handleScroll.bind(this));
+                this.handleScroll(); // Chamar inicialmente
+            }
+            
+            handleScroll() {
+                const scrollPosition = window.pageYOffset;
+                this.scrollDirection = scrollPosition > this.lastScrollPosition ? 1 : -1;
+                this.lastScrollPosition = scrollPosition;
+                
+                // Efeito no header
+                if (scrollPosition > 100) {
+                    this.header.classList.add('scrolled');
+                    
+                    // Efeito adicional baseado na direção do scroll
+                    if (this.scrollDirection > 0) {
+                        this.header.style.transform = 'translateY(-10px)';
+                    } else {
+                        this.header.style.transform = 'translateY(0)';
+                    }
+                } else {
+                    this.header.classList.remove('scrolled');
+                    this.header.style.transform = 'translateY(0)';
+                }
+                
+                // Efeito parallax nas seções
+                this.sections.forEach((section, index) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const scrollPercent = (scrollPosition - sectionTop + window.innerHeight) / (window.innerHeight + sectionHeight);
+                    
+                    if (scrollPercent >= 0 && scrollPercent <= 1) {
+                        const depth = index % 2 === 0 ? 0.3 : 0.5;
+                        const move = scrollPosition * depth;
+                        section.style.backgroundPositionY = `${move}px`;
+                        
+                        // Efeito de opacidade
+                        section.style.opacity = 0.5 + scrollPercent * 0.5;
+                    }
+                });
+            }
+        }
+
+        // Menu Mobile
+        class MobileMenu {
+            constructor(menuBtnId, navListId) {
+this.menuBtn = document.getElementById(menuBtnId);
+this.navList = document.getElementById(navListId);
+this.init();
+}
+
+        init() {
+            this.menuBtn.addEventListener('click', this.toggleMenu.bind(this));
+            
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll(`${navListId} .nav-link`).forEach(link => {
+                link.addEventListener('click', this.closeMenu.bind(this));
             });
-        };
+        }
         
-        // Inicializar elementos com opacidade 0 para animação
-        document.querySelectorAll('.attendant-card, .service-card').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'all 0.6s ease';
+        toggleMenu() {
+            this.navList.classList.toggle('active');
+            this.menuBtn.innerHTML = this.navList.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        }
+        
+        closeMenu() {
+            this.navList.classList.remove('active');
+            this.menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    }
+
+    // Efeito de Rolagem Suave
+    class SmoothScroll {
+        constructor() {
+            this.links = document.querySelectorAll('a[href^="#"]');
+            this.init();
+        }
+        
+        init() {
+            this.links.forEach(link => {
+                link.addEventListener('click', this.scrollToSection.bind(this));
+            });
+        }
+        
+        scrollToSection(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const targetPosition = targetElement.offsetTop - 100;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+                
+                const animation = (currentTime) => {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = this.easeInOutCubic(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                };
+                
+                requestAnimationFrame(animation);
+            }
+        }
+        
+        easeInOutCubic(t, b, c, d) {
+            t /= d/2;
+            if (t < 1) return c/2*t*t*t + b;
+            t -= 2;
+            return c/2*(t*t*t + 2) + b;
+        }
+    }
+
+    // Efeito de Hover nas Cards
+    class CardHoverEffect {
+        constructor(cardSelector) {
+            this.cards = document.querySelectorAll(cardSelector);
+            this.init();
+        }
+        
+        init() {
+            this.cards.forEach(card => {
+                card.addEventListener('mousemove', this.handleMouseMove.bind(this));
+                card.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
+                card.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+            });
+        }
+        
+        handleMouseMove(e) {
+            const card = e.currentTarget;
+            const cardRect = card.getBoundingClientRect();
+            const x = e.clientX - cardRect.left;
+            const y = e.clientY - cardRect.top;
+            const centerX = cardRect.width / 2;
+            const centerY = cardRect.height / 2;
+            const angleX = (y - centerY) / 20;
+            const angleY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+            
+            // Efeito de brilho
+            const glow = document.createElement('div');
+            glow.style.position = 'absolute';
+            glow.style.width = '100px';
+            glow.style.height = '100px';
+            glow.style.background = 'radial-gradient(circle, rgba(255,215,0,0.8) 0%, transparent 70%)';
+            glow.style.borderRadius = '50%';
+            glow.style.top = `${y - 50}px`;
+            glow.style.left = `${x - 50}px`;
+            glow.style.zIndex = '0';
+            glow.style.pointerEvents = 'none';
+            
+            card.appendChild(glow);
+            
+            setTimeout(() => {
+                glow.style.opacity = '0';
+                glow.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => glow.remove(), 500);
+            }, 100);
+        }
+        
+        handleMouseEnter(e) {
+            const card = e.currentTarget;
+            card.style.transition = 'all 0.3s ease-out';
+        }
+        
+        handleMouseLeave(e) {
+            const card = e.currentTarget;
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            card.style.transition = 'all 0.5s ease-in-out';
+        }
+    }
+
+    // Inicialização de todos os efeitos
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sistema de partículas
+        new ParticleSystem('particles', 150);
+        
+        // Efeito de digitação (se houver texto para digitar)
+        // new TypeWriter('hero-title', ['CRIAÇÃO DE SITES PREMIUM', 'DESENVOLVIMENTO WEB', 'SOLUÇÕES DIGITAIS'], 100, 50, 2000);
+        
+        // Efeito parallax
+        new AdvancedParallax();
+        
+        // Menu mobile
+        new MobileMenu('mobileMenuBtn', 'navList');
+        
+        // Rolagem suave
+        new SmoothScroll();
+        
+        // Efeito hover nas cards
+        new CardHoverEffect('.attendant-card');
+        
+        // Efeito de clique (opcional)
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple-effect';
+            ripple.style.left = `${e.clientX}px`;
+            ripple.style.top = `${e.clientY}px`;
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.style.transform = 'scale(20)';
+                ripple.style.opacity = '0';
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 1000);
+            }, 10);
         });
+    });
+
+    // Verificação de dispositivo para ajustes
+    function checkDevice() {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
+        if (isMobile) {
+            // Ajustes específicos para mobile
+            document.body.classList.add('mobile-device');
+            
+            // Reduzir número de partículas em dispositivos móveis
+            const particlesContainer = document.getElementById('particles');
+            particlesContainer.innerHTML = '';
+            new ParticleSystem('particles', 50);
+        } else {
+            document.body.classList.add('desktop-device');
+        }
+    }
+
+    // Executar verificação de dispositivo
+    checkDevice();
+</script>
 </body>
 </html>
